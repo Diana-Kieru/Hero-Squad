@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f33000b0-4ac6-46eb-84b7-faf670e8788c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Squad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/enumerations/Strength.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/enumerations/Weaknesses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/enumerations/Fighting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Squad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
