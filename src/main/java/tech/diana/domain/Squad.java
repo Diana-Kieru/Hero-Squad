@@ -1,12 +1,12 @@
 package tech.diana.domain;
 
-import tech.diana.domain.enumerations.Fighting;
+import tech.diana.domain.enumerations.FightingCause;
 
 public class Squad {
     private String name;
     private int size;
     private int age;
-    private Fighting fight;
+    private FightingCause fight;
 
     public String getName() {
         return name;
@@ -32,11 +32,11 @@ public class Squad {
         this.age = age;
     }
 
-    public Fighting getFight() {
+    public FightingCause getFight() {
         return fight;
     }
 
-    public void setFight(Fighting fight) {
+    public void setFight(FightingCause fight) {
         this.fight = fight;
     }
 

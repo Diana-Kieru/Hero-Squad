@@ -1,5 +1,5 @@
 package tech.diana.domain.enumerations;
 
-public enum Fighting {
+public enum FightingCause {
     K,L,M,N,O
 }
