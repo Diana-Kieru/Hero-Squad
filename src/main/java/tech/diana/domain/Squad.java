@@ -6,8 +6,14 @@ public class Squad {
     private String name;
     private int size;
     private int age;
-    private FightingCause fight;
+    private FightingCause fightingCause;
 
+    public Squad(String name, int size, int age, FightingCause fightingCause) {
+        this.name = name;
+        this.size = size;
+        this.age = age;
+        this.fightingCause = fightingCause;
+    }
 
     public String getName() {
         return name;
@@ -33,12 +39,12 @@ public class Squad {
         this.age = age;
     }
 
-    public FightingCause getFight() {
-        return fight;
+    public FightingCause getFightingCause() {
+        return fightingCause;
     }
 
-    public void setFight(FightingCause fight) {
-        this.fight = fight;
+    public void setFightingCause(FightingCause fightingCause) {
+        this.fightingCause = fightingCause;
     }
 
     @Override
@@ -47,7 +53,7 @@ public class Squad {
                 "name='" + name + '\'' +
                 ", size=" + size +
                 ", age=" + age +
-                ", fight=" + fight +
+                ", fight=" + fightingCause +
                 '}';
     }
 }
