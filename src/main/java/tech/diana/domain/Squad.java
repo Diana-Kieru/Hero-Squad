@@ -8,6 +8,7 @@ public class Squad {
     private int age;
     private FightingCause fight;
 
+
     public String getName() {
         return name;
     }
