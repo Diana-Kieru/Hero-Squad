@@ -18,23 +18,14 @@ import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
-        Hero hero = new Hero();
-        hero.setName("Diana");
-        hero.setAge(25);
-        hero.setStrength(Strength.A);
-        hero.setWeakness(Weaknesses.F);
+        Hero hero = new Hero("Diana", 25, Strength.A,Weaknesses.F);
 
-        Hero hero1 =new Hero();
-        hero1.setName("Kieru");
-        hero1.setAge(23);
-        hero1.setStrength(Strength.B);
-        hero1.setWeakness(Weaknesses.G);
 
-        Hero hero2 = new Hero();
-        hero2.setName("Maureen");
-        hero2.setAge(24);
-        hero2.setStrength(Strength.B);
-        hero2.setWeakness(Weaknesses.H);
+        Hero hero1 =new Hero("Kieru", 23, Strength.B, Weaknesses.F) ;
+
+
+        Hero hero2 = new Hero("Maureen", 24, Strength.C, Weaknesses.H);
+
 
         List<Hero> heroList = new ArrayList<>();
         heroList.add(hero);

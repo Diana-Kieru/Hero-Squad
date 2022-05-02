@@ -9,6 +9,16 @@ public class Hero {
     private Strength strength;
     private Weaknesses weakness;
 
+    public Hero(String name, int age, Strength strength, Weaknesses weakness) {
+        this.name = name;
+        this.age = age;
+        this.strength = strength;
+        this.weakness = weakness;
+    }
+
+    public Hero() {
+    }
+
     public String getName() {
         return name;
     }
