@@ -5,13 +5,13 @@ import tech.diana.domain.enumerations.FightingCause;
 public class Squad {
     private String name;
     private int size;
-    private int age;
+//
     private FightingCause fightingCause;
 
-    public Squad(String name, int size, int age, FightingCause fightingCause) {
+    public Squad(String name, int size, FightingCause fightingCause) {
         this.name = name;
         this.size = size;
-        this.age = age;
+//
         this.fightingCause = fightingCause;
     }
 
@@ -31,14 +31,7 @@ public class Squad {
         this.size = size;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
+//
     public FightingCause getFightingCause() {
         return fightingCause;
     }
@@ -52,7 +45,7 @@ public class Squad {
         return "Squad{" +
                 "name='" + name + '\'' +
                 ", size=" + size +
-                ", age=" + age +
+
                 ", fight=" + fightingCause +
                 '}';
     }

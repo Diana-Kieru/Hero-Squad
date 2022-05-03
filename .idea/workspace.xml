@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f33000b0-4ac6-46eb-84b7-faf670e8788c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/diana/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Squad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/squad.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/squad.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/tech/diana/App.java</url>
-          <line>38</line>
+          <line>40</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
