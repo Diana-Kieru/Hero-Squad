@@ -1,51 +1,70 @@
-package tech.diana.domain;
+package models;
 
-import tech.diana.domain.enumerations.Strength;
-import tech.diana.domain.enumerations.Weaknesses;
+import java.util.ArrayList;
 
 public class Hero {
-    private int heroAge;
-    private String heroStrength;
-    private String heroWeakness;
-    private int heroId;
+    private String name;
+    private int age;
+    private int id;
+    private ArrayList<String> powers = new ArrayList<String>();
+    private ArrayList<String> weaknesses = new ArrayList<String>();
+    private static ArrayList<Hero> instances = new ArrayList<Hero>();
+    private int squadId;
 
-    public Hero(int heroAge, String heroStrength, String heroWeakness, int heroId) {
-        this.heroAge = heroAge;
-        this.heroStrength = heroStrength;
-        this.heroWeakness = heroWeakness;
-        this.heroId = heroId;
+    public Hero(String name, int age, ArrayList<String> powers, ArrayList<String> weaknesses, int squadId){
+        this.name = name;
+        this.age = age;
+        this.powers = powers;
+        this.weaknesses = weaknesses;
+        this.squadId = squadId;
+        instances.add(this);
+        this.id = instances.size();
     }
 
-    public int getHeroAge() {
-        return heroAge;
+    public String getName() {
+        return name;
     }
 
-    public void setHeroAge(int heroAge) {
-        this.heroAge = heroAge;
+    public int getAge() {
+        return age;
     }
 
-    public String getHeroStrength() {
-        return heroStrength;
+    public ArrayList<String> getPowers() {
+        return powers;
     }
 
-    public void setHeroStrength(String heroStrength) {
-        this.heroStrength = heroStrength;
+    public ArrayList<String> getWeaknesses() {
+        return weaknesses;
     }
 
-    public String getHeroWeakness() {
-        return heroWeakness;
+    public static ArrayList<Hero> getAll(){
+        return instances;
     }
 
-    public void setHeroWeakness(String heroWeakness) {
-        this.heroWeakness = heroWeakness;
+    public static void clearAllHeros(){
+        instances.clear();
     }
 
-    public int getHeroId() {
-        return heroId;
+    public int getId() {
+        return id;
     }
 
-    public void setHeroId(int heroId) {
-        this.heroId = heroId;
+    public static Hero findById(int id){
+        return  instances.get(id-1);
+    }
+
+    public void update(String name, int age, ArrayList<String> powers, ArrayList<String> weaknesses){
+        this.name = name;
+        this.age = age;
+        this.powers = powers;
+        this.weaknesses = weaknesses;
+    }
+
+    public void deleteHero(){
+        instances.remove(id-1);
+    }
+
+    public int getSquadId() {
+        return squadId;
     }
 }
-

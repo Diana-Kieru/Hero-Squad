@@ -1,47 +1,46 @@
-package tech.diana.domain;
+package models;
+
+import java.util.ArrayList;
 
 public class Squad {
-    private int sSize;
-    private  String sName;
-    private String sCause;
-    private int sId;
+    private int maxSize;
+    private String name;
+    private String cause;
+    private static ArrayList<Squad> instance = new ArrayList<Squad>();
+    private int id;
 
-    public Squad(int sSize, String sName, String sCause, int sId) {
-        this.sSize = sSize;
-        this.sName = sName;
-        this.sCause = sCause;
-        this.sId = sId;
+    public Squad(int maxSize, String name, String cause){
+        this.maxSize = maxSize;
+        this.name = name;
+        this.cause = cause;
+        instance.add(this);
+        this.id = instance.size();
+
     }
 
-    public int getsSize() {
-        return sSize;
+    public int getMaxSize() {
+        return maxSize;
     }
 
-    public void setsSize(int sSize) {
-        this.sSize = sSize;
+    public String getName() {
+        return name;
     }
 
-    public String getsName() {
-        return sName;
+    public String getCause() {
+        return cause;
+    }
+    public static  ArrayList<Squad> getAll(){
+        return instance;
     }
 
-    public void setsName(String sName) {
-        this.sName = sName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getsCause() {
-        return sCause;
+    public int getId() {
+        return id;
     }
-
-    public void setsCause(String sCause) {
-        this.sCause = sCause;
-    }
-
-    public int getsId() {
-        return sId;
-    }
-
-    public void setsId(int sId) {
-        this.sId = sId;
+    public static Squad findById(int id){
+        return  instance.get(id-1);
     }
 }

@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f33000b0-4ac6-46eb-84b7-faf670e8788c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tech/diana/HeroTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tech/diana/SquadTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/diana/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Hero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/diana/domain/Squad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/domain/enumerations/FightingCause.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/domain/enumerations/Strength.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/diana/domain/enumerations/Weaknesses.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/heroes.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/heroes.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,7 +48,7 @@
     "settings.editor.selected.configurable": "copyright"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tech.diana.App" />
       <module name="herosquad" />
@@ -62,9 +62,57 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="herosquad" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.diana.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.diana" />
+      <option name="MAIN_CLASS_NAME" value="tech.diana.AppTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HeroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="herosquad" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.diana.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.diana" />
+      <option name="MAIN_CLASS_NAME" value="tech.diana.HeroTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SquadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="herosquad" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.diana.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.diana" />
+      <option name="MAIN_CLASS_NAME" value="tech.diana.SquadTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.HeroTest" />
+        <item itemvalue="JUnit.SquadTest" />
+        <item itemvalue="JUnit.AppTest" />
       </list>
     </recent_temporary>
   </component>
@@ -95,7 +143,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/tech/diana/App.java</url>
-          <line>43</line>
+          <line>17</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
