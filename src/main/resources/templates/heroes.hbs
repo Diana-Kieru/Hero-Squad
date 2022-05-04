@@ -1,0 +1,217 @@
+{{#partial "styles"}}
+    <link rel="stylesheet" href="/css/heroes.css">
+{{/partial}}
+
+{{#partial "content"}}
+    {{#if editHero}}
+        <h2 class="text-center">Update your hero details!</h2>
+        <div class="container mt-5 offset-sm-3 pt-3 pb-3">
+            <div class="row">
+                <div class="col-md-4 offset-sm-2">
+                    <form action="/heroes/{{editHero.id}}/update" method="POST">
+                        <div class="row mb-3">
+                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control w-50" id="name" name="name">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="age" class="col-sm-2 col-form-label">Age</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control w-50" id="age" name="age">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <h4>Choose your hero's powers</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="superhuman" name="power" value="Superhuman strength">
+                                    <label class="form-check-label" for="superhuman">
+                                        Superhuman strength
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="telepathy" name="power" value="Telepathy">
+                                    <label class="form-check-label" for="telepathy">
+                                        Telepathy
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="invisibility" name="power" value="Invisibility">
+                                    <label class="form-check-label" for="invisibility">
+                                        Invisibility
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="shifting" name="power" value="Shape shifting">
+                                    <label class="form-check-label" for="shifting">
+                                        Shape shifting
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="flight" name="power" value="Flight">
+                                    <label class="form-check-label" for="flight">
+                                        Flight
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4>Choose your hero's weaknesses</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="webfluid" name="weakness" value="Web Fluid">
+                                    <label class="form-check-label" for="webfluid">
+                                        Web Fluid
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="magnets" name="weakness" value="Magnets">
+                                    <label class="form-check-label" for="magnets">
+                                        Magnets
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="sonicwaves" name="weakness" value="Sonic Waves">
+                                    <label class="form-check-label" for="sonicwaves">
+                                        Sonic Waves
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="anger" name="weakness" value="Too much anger">
+                                    <label class="form-check-label" for="anger">
+                                        Too much anger
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="lowbatteries" name="weakness" value="Low batteries">
+                                    <label class="form-check-label" for="lowbatteries">
+                                        Low batteries
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <label for="squadId">Squad</label>
+                                <select class="form-control" name="squadId" id="squadId" required>
+                                    {{#each squads}}
+                                        <option value="{{id}}">{{name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Hero</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {{else}}
+        <div class="container intro text-center mt-5">
+            <h3 class="mb-4">Add your hero</h3>
+        </div>
+        <div class="container mt-5 offset-sm-3 pt-3 pb-3">
+            <div class="row">
+                <div class="col-md-4 offset-sm-2">
+                    <form action="/heroes/new" method="POST">
+                        <div class="row mb-3">
+                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control w-50" id="name" name="name">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="age" class="col-sm-2 col-form-label">Age</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control w-50" id="age" name="age">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <h4>Choose your hero's powers</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="superhuman" name="power" value="Superhuman strength">
+                                    <label class="form-check-label" for="superhuman">
+                                        Superhuman strength
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="telepathy" name="power" value="Telepathy">
+                                    <label class="form-check-label" for="telepathy">
+                                        Telepathy
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="invisibility" name="power" value="Invisibility">
+                                    <label class="form-check-label" for="invisibility">
+                                        Invisibility
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="shifting" name="power" value="Shape shifting">
+                                    <label class="form-check-label" for="shifting">
+                                        Shape shifting
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="flight" name="power" value="Flight">
+                                    <label class="form-check-label" for="flight">
+                                        Flight
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4>Choose your hero's weaknesses</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="webfluid" name="weakness" value="Web Fluid">
+                                    <label class="form-check-label" for="webfluid">
+                                        Web Fluid
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="magnets" name="weakness" value="Magnets">
+                                    <label class="form-check-label" for="magnets">
+                                        Magnets
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="sonicwaves" name="weakness" value="Sonic Waves">
+                                    <label class="form-check-label" for="sonicwaves">
+                                        Sonic Waves
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="anger" name="weakness" value="Too much anger">
+                                    <label class="form-check-label" for="anger">
+                                        Too much anger
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="lowbatteries" name="weakness" value="Low batteries">
+                                    <label class="form-check-label" for="lowbatteries">
+                                        Low batteries
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <div class="md-form">
+                                        <label for="squadId">Squad</label>
+                                        <select class="form-control" name="squadId" id="squadId" required>
+                                            {{#each squads}}
+                                                <option value="{{id}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                        <!--                    <a href="/squad/new"><p class="text white">Create your own squad</p></a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Hero</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+
+{{/partial}}
+{{>layout.hbs}}

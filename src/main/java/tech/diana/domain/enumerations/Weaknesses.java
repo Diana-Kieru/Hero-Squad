@@ -1,5 +1,10 @@
 package tech.diana.domain.enumerations;
 
 public enum Weaknesses {
-    F,G,H,I,J
+   Sleeping,
+    SleepWalking,
+    Laziness,
+    Attitude,
+    SlowLearner
+
 }

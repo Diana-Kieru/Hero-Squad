@@ -1,25 +1,47 @@
-
 {{#block "header"}}
-
     <!DOCTYPE html>
     <html>
     <head>
-        <title>{{#block "title"}}Hello Friend!{{/block}}
+        <title>
+            {{#block "title" }}Hero Squad{{/block}}
+
         </title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
-        <link rel='stylesheet' href='/css/index.css'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Sansita&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='/css/app.css'>
+        {{#block "styles"}}{{/block}}
+
     </head>
     <body>
 {{/block}}
-<!-- begin inner template-->
+<ul class="nav justify-content-center mt-5">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/heroes/list">View Heroes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/squads/list">View Squads</a>
+    </li>
+</ul>
+
 <div class="container">
-    {{#block "content"}}
-    {{/block}}
+    <!--begin main template-->
 
+    <div class="col-md-12">
+        {{#block "content"}}
+        {{/block}}
+
+    </div>
 </div>
-<!-- end inner template-->
 {{#block "footer"}}
+    </div>
+    <footer class="footer">
+        <div class="container">
 
+        </div>
+    </footer>
     </body>
-    <
-    tnn-azpk-zbt
+    </html>
+{{/block}}

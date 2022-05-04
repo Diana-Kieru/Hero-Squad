@@ -1,0 +1,23 @@
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(/images/hero2.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Sansita', sans-serif;
+    color: aqua;
+}
+.nav li a{
+    color:white;
+    font-size:20px;
+}
+
+.nav li a:hover{
+    color: aqua;
+}
+
+.btn{
+     background-color:aqua;
+     padding: 10px 30px;
+     border-radius: 50px;
+}

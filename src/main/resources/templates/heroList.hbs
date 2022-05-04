@@ -1,0 +1,51 @@
+{{#partial "styles"}}
+    <link rel="stylesheet" href="/css/heroesList.css">
+{{/partial}}
+{{#partial "content"}}
+    <h1 class="mt-5 text-center">The Heroes List</h1>
+
+    {{#if heroes}}
+        {{#each heroes}}
+            <div class="container mt-5 w-50 list">
+                <div class="row text-center">
+                    <p>Name:  {{name}}</p>
+                    <p>Age:  {{age}}</p>
+                    <p>Squad: {{squad.name}}</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 offset-sm-2">
+                        <ul>
+                            <h6>Powers</h6>
+                            {{#each powers}}
+                                <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <h6>Weaknesses</h6>
+                            {{#each weaknesses}}
+                                <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 offset-sm-2">
+                        <p class="text-center mt-4"> <a href="/heroes/{{id}}/update"><button type="button" class="btn">Update Hero</button></a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="text-center mt-4"> <a href="/heroes/{{id}}/delete"><button type="button" class="btn">Delete Hero</button></a></p>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        <p class="text-center mt-4"> <a href="/heroes/delete"><button type="button" class="btn">Delete All Heroes</button></a></p>
+    {{else}}
+        <p class="text-center">No Heroes!</p>
+    {{/if}}
+{{/partial}}
+{{>layout.hbs}}

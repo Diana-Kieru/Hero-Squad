@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import tech.diana.domain.Hero;
 import tech.diana.domain.Squad;
@@ -21,13 +22,15 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
 
-        Hero hero = new Hero("Diana", 25, Strength.A, Weaknesses.F);
+        Spark.staticFileLocation("/public");
+
+        Hero hero = new Hero("Diana", 25, Strength.faith, Weaknesses.Attitude);
 
 
-        Hero hero1 = new Hero("Kieru", 23, Strength.B, Weaknesses.F);
+        Hero hero1 = new Hero("Kieru", 23, Strength.healing, Weaknesses.Laziness);
 
 
-        Hero hero2 = new Hero("Maureen", 24, Strength.C, Weaknesses.H);
+        Hero hero2 = new Hero("Maureen", 24, Strength.strong, Weaknesses.SleepWalking);
 
 
         List<Hero> heroList = new ArrayList<>();
@@ -56,16 +59,16 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-        Squad squad = new Squad("first", 5, FightingCause.K );
-        Squad squad1 = new Squad("second", 6, FightingCause.L);
-        Squad squad2 = new Squad("third", 4, FightingCause.M);
+        Squad squad = new Squad("first", 5, FightingCause.computerIlliteracy);
+        Squad squad1 = new Squad("second", 6, FightingCause.depression);
+        Squad squad2 = new Squad("third", 4, FightingCause.drugs);
 
         List<Squad> squadList = new ArrayList<>();
         squadList.add(squad);
         squadList.add(squad1);
         squadList.add(squad2);
 
-        Map<String, Object> model = new HashMap<>();
+//        Map<String, Object> model = new HashMap<>();
         get("/squad", (req, res) -> {
 
             model.put("squadList", squadList);
@@ -76,10 +79,14 @@ public class App {
             String name = req.queryParams("name");
             int size = Integer.parseInt(req.queryParams("size"));
             FightingCause fightingCause = FightingCause.valueOf(req.queryParams("fightingCause"));
-//
-            Squad newSquad = new Squad(name, size, FightingCause);
-            heroList.add(newSquad);
+
+            Squad newSquad = new Squad(name, size, fightingCause);
+            squadList.add(newSquad);
             model.put("squadList", squadList);
+
+            res.redirect("/squad");
+            return null;
+        }, new HandlebarsTemplateEngine());
 
 
 
