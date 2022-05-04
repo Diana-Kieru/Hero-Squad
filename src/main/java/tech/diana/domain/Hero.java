@@ -4,60 +4,48 @@ import tech.diana.domain.enumerations.Strength;
 import tech.diana.domain.enumerations.Weaknesses;
 
 public class Hero {
-    private String name;
-    private int age;
-    private Strength strength;
-    private Weaknesses weakness;
+    private int heroAge;
+    private String heroStrength;
+    private String heroWeakness;
+    private int heroId;
 
-    public Hero(String name, int age, Strength strength, Weaknesses weakness) {
-        this.name = name;
-        this.age = age;
-        this.strength = strength;
-        this.weakness = weakness;
+    public Hero(int heroAge, String heroStrength, String heroWeakness, int heroId) {
+        this.heroAge = heroAge;
+        this.heroStrength = heroStrength;
+        this.heroWeakness = heroWeakness;
+        this.heroId = heroId;
     }
 
-    public Hero() {
+    public int getHeroAge() {
+        return heroAge;
     }
 
-    public String getName() {
-        return name;
+    public void setHeroAge(int heroAge) {
+        this.heroAge = heroAge;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getHeroStrength() {
+        return heroStrength;
     }
 
-    public int getAge() {
-        return age;
+    public void setHeroStrength(String heroStrength) {
+        this.heroStrength = heroStrength;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getHeroWeakness() {
+        return heroWeakness;
     }
 
-    public Strength getStrength() {
-        return strength;
+    public void setHeroWeakness(String heroWeakness) {
+        this.heroWeakness = heroWeakness;
     }
 
-    public void setStrength(Strength strength) {
-        this.strength = strength;
+    public int getHeroId() {
+        return heroId;
     }
 
-    public Weaknesses getWeakness() {
-        return weakness;
-    }
-
-    public void setWeakness(Weaknesses weakness) {
-        this.weakness = weakness;
-    }
-
-    @Override
-    public String toString() {
-        return "Hero{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", strength=" + strength +
-                ", weakness=" + weakness +
-                '}';
+    public void setHeroId(int heroId) {
+        this.heroId = heroId;
     }
 }
+
