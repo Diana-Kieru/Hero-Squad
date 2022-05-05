@@ -1,20 +1,21 @@
-package models;
-
-import java.util.ArrayList;
+package tech.diana.domain;
 
 public class Squad {
     private int maxSize;
     private String name;
     private String cause;
-    private static ArrayList<Squad> instance = new ArrayList<Squad>();
+
     private int id;
 
-    public Squad(int maxSize, String name, String cause){
+    public Squad(int id, int maxSize, String name, String cause){
         this.maxSize = maxSize;
         this.name = name;
         this.cause = cause;
-        instance.add(this);
-        this.id = instance.size();
+        this.id = id;
+//        instance.add(this);
+//        this.id = instance.size();
+
+//
 
     }
 
@@ -29,9 +30,7 @@ public class Squad {
     public String getCause() {
         return cause;
     }
-    public static  ArrayList<Squad> getAll(){
-        return instance;
-    }
+
 
     public void setId(int id) {
         this.id = id;
@@ -40,7 +39,14 @@ public class Squad {
     public int getId() {
         return id;
     }
-    public static Squad findById(int id){
-        return  instance.get(id-1);
+
+    @Override
+    public String toString() {
+        return "Squad{" +
+                "maxSize=" + maxSize +
+                ", name='" + name + '\'' +
+                ", cause='" + cause + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

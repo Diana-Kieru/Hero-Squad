@@ -1,4 +1,4 @@
-package models;
+package tech.diana.domain;
 
 import java.util.ArrayList;
 

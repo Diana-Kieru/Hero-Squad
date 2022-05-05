@@ -3,6 +3,7 @@ package tech.diana;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import tech.diana.domain.Hero;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class HeroTest {
 
     @After
     public void tearDown() throws Exception {
-        models.Hero.clearAllHeros();
+        Hero.clearAllHeros();
     }
 
     @Test
@@ -28,11 +29,11 @@ public class HeroTest {
         weaknesses.add("destructive temper");
         weaknesses.add("kryptonite");
 
-        models.Hero hero = new models.Hero("supergirl",23,powers,weaknesses,1);
-        assertEquals(true, hero instanceof models.Hero);
+        Hero hero = new Hero("supergirl",23,powers,weaknesses,1);
+        assertEquals(true, hero instanceof Hero);
     }
 
-    public models.Hero setupNewHero() throws Exception{
+    public Hero setupNewHero() throws Exception{
         ArrayList<String> powers = new ArrayList<String>();
         ArrayList<String> weaknesses = new ArrayList<String>();
         powers.add("fly");
@@ -40,11 +41,11 @@ public class HeroTest {
         weaknesses.add("destructive temper");
         weaknesses.add("kryptonite");
 
-        models.Hero hero = new models.Hero("supergirl",23,powers,weaknesses,1);
+        Hero hero = new Hero("supergirl",23,powers,weaknesses,1);
         return  hero;
     }
 
-    public models.Hero setupAnotherHero() throws Exception{
+    public Hero setupAnotherHero() throws Exception{
         ArrayList<String> powers = new ArrayList<String>();
         ArrayList<String> weaknesses = new ArrayList<String>();
         powers.add("fly");
@@ -52,74 +53,74 @@ public class HeroTest {
         weaknesses.add("magic");
         weaknesses.add("kryptonite");
 
-        models.Hero anotherHero = new models.Hero("superman",30,powers,weaknesses,1);
+        Hero anotherHero = new Hero("superman",30,powers,weaknesses,1);
 
         return  anotherHero;
     }
 
     @Test
     public void HeroInstanceWithName_true() throws Exception{
-        models.Hero hero = setupNewHero();
+        Hero hero = setupNewHero();
         assertEquals("supergirl",hero.getName());
     }
 
     @Test
     public void HeroInstanceWithAge_true() throws Exception{
-        models.Hero hero = setupNewHero();
+        Hero hero = setupNewHero();
         assertEquals(23,hero.getAge());
     }
 
     @Test
     public void HeroInstanceWithPowers_true() throws Exception{
-        models.Hero hero = setupNewHero();
+        Hero hero = setupNewHero();
         assertTrue(hero.getPowers().contains("fly"));
     }
 
     @Test
     public void HeroInstanceWithWeaknesses_true() throws Exception{
-        models.Hero hero = setupNewHero();
+        Hero hero = setupNewHero();
         assertTrue(hero.getWeaknesses().contains("kryptonite"));
     }
 
     @Test
     public void AllHerosReturnedCorrevtly_true() throws Exception {
-        models.Hero hero = setupNewHero();
-        models.Hero anotherHero = setupAnotherHero();
-        assertEquals(2, models.Hero.getAll().size());
+        Hero hero = setupNewHero();
+        Hero anotherHero = setupAnotherHero();
+        assertEquals(2,Hero.getAll().size());
     }
 
     @Test
     public void AllHerosContainsAllPosts_true() throws Exception {
-        models.Hero hero = setupNewHero();
-        models.Hero anotherHero = setupAnotherHero();
+        Hero hero = setupNewHero();
+        Hero anotherHero = setupAnotherHero();
 
-        assertTrue(models.Hero.getAll().contains(hero));
-        assertTrue(models.Hero.getAll().contains(anotherHero));
+        assertTrue(Hero.getAll().contains(hero));
+        assertTrue(Hero.getAll().contains(anotherHero));
     }
 
     @Test
     public void getId_herosInstantiateWithAnID_1() throws Exception{
-        models.Hero hero =setupNewHero();
+        Hero hero =setupNewHero();
         assertEquals(1,hero.getId());
     }
 
     @Test
     public void findReturnsCorrectPost() throws Exception{
-        models.Hero hero = setupNewHero();
-        assertEquals(1, models.Hero.findById(hero.getId()).getId());
+        Hero hero = setupNewHero();
+        assertEquals(1, Hero.findById(hero.getId()).getId());
     }
 
     @Test
     public void findReturnsCorrectHeroWhenMoreThanOneHeroExists() throws Exception{
-        models.Hero hero = setupNewHero();
-        models.Hero anotherHero = setupAnotherHero();
+        Hero hero = setupNewHero();
+        Hero anotherHero = setupAnotherHero();
 
-        assertEquals(2, models.Hero.findById(anotherHero.getId()).getId());
+        assertEquals(2,Hero.findById(anotherHero.getId()).getId());
     }
 
     @Test
     public void updateChangesHerosContent() throws Exception{
-        models.Hero hero = setupNewHero();
+        Hero hero = setupNewHero();
         String formerName = hero.getName();
         int formerAge = hero.getAge();
         ArrayList<String> formerPowers = hero.getPowers();
@@ -142,19 +143,19 @@ public class HeroTest {
 
     @Test
     public void deleteDeletesASpecificHero() throws Exception {
-        models.Hero hero = setupNewHero();
-        models.Hero anotherHero = setupAnotherHero();
+        Hero hero = setupNewHero();
+        Hero anotherHero = setupAnotherHero();
         hero.deleteHero();
-        assertEquals(1, models.Hero.getAll().size());
-        assertEquals(models.Hero.getAll().get(0).getId(),2);
+        assertEquals(1,Hero.getAll().size());
+        assertEquals(Hero.getAll().get(0).getId(),2);
     }
 
     @Test
     public void deleteAllHerosDeletesAllHeros() throws Exception{
-        models.Hero hero = setupNewHero();
-        models.Hero anotherHero = setupAnotherHero();
+        Hero hero = setupNewHero();
+        Hero anotherHero = setupAnotherHero();
 
-        models.Hero.clearAllHeros();
-        assertEquals(0, models.Hero.getAll().size());
+        Hero.clearAllHeros();
+        assertEquals(0,Hero.getAll().size());
     }
 }

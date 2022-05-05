@@ -1,19 +1,30 @@
 package tech.diana;
 
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+import tech.diana.domain.Hero;
+import tech.diana.domain.Squad;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import models.Hero;
-import models.Squad;
-import spark.ModelAndView;
-import spark.QueryParamsMap;
-import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
 
 public class App {
+   static List<Squad> instance = new ArrayList<Squad>();
+   public static Squad findById(List<Squad> squads, int squadId){
+       for (Squad squad: squads){
+           if (squad.getId()==squadId){
+               return squad;
+           }
+       }
+       return null;
+   }
     public static void main(String[] args) {
         staticFileLocation("/public");
+
 
         get("/",(request, response) -> {
             Map<String,Object> model = new HashMap<String, Object>();
@@ -39,9 +50,9 @@ public class App {
             }
             model.put("weaknesses",weaknesses);
 
-            ArrayList<Squad> squads = Squad.getAll();
+            List<Squad> squads = instance;
             model.put("squads",squads);
-            int squadId = Integer.parseInt(request.queryParams("squadId"));
+            int squadId = 23;
 
             Hero hero = new Hero(name,age,powers,weaknesses,squadId);
 
@@ -52,10 +63,10 @@ public class App {
 
         get("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            ArrayList<Hero> heroes = Hero.getAll();
-            model.put("heroes",heroes);
-            ArrayList<Squad> squads = Squad.getAll();
-            model.put("squads",squads);
+//            ArrayList<Hero> heroes = Hero.getAll();
+//            model.put("heroes",heroes);
+//            ArrayList<Squad> squads = Squad.getAll();
+//            model.put("squads",squads);
             return new ModelAndView(model, "heroes.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -63,11 +74,11 @@ public class App {
             Map<String,Object> model = new HashMap<String, Object>();
             ArrayList<Hero> heroes = Hero.getAll();
             model.put("heroes",heroes);
-            ArrayList<Squad> squads = Squad.getAll();
+            List<Squad> squads = instance;
             model.put("squads",squads);
             for (Hero hero: heroes) {
                 int idOfHeroToFind = hero.getSquadId();
-                Squad squad = Squad.findById(idOfHeroToFind);
+                Squad squad = findById(instance, idOfHeroToFind);
                 model.put("squad",squad);
             }
 
@@ -85,7 +96,7 @@ public class App {
             int idOfHeroToFind = Integer.parseInt(request.params("id"));
             Hero foundHero = Hero.findById(idOfHeroToFind);
             int squadId = foundHero.getSquadId();
-            Squad squad = Squad.findById(squadId);
+            Squad squad = findById(instance, squadId);
             ArrayList<Hero> heroes = Hero.getAll();
             model.put("squad",squad);
             model.put("hero",foundHero);
@@ -95,7 +106,7 @@ public class App {
 
         get("/heroes/:id/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Squad> squads = Squad.getAll();
+            List<Squad> squads = instance;
             int idOfHeroToEdit = Integer.parseInt(request.params("id"));
 
             Hero editHero = Hero.findById(idOfHeroToEdit);
@@ -150,14 +161,16 @@ public class App {
             String name = request.queryParams("name");
             int maxSize = Integer.parseInt(request.queryParams("maxSize"));
             String cause = request.queryParams("cause");
-            Squad squad = new Squad(maxSize,name,cause);
+            Squad squad = new Squad( instance.size()+1, maxSize,name,cause);
+            instance.add(squad);
             return new ModelAndView(model, "successSquad.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/squads/list", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Squad> squads = Squad.getAll();
-            model.put("squads", squads);
+//            List<Squad> squads = instance;
+            model.put("squads", instance);
+            System.out.println("squads" + instance);
 
             return new ModelAndView(model, "squadList.hbs");
         }, new HandlebarsTemplateEngine());
@@ -166,10 +179,10 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int squadId =Integer.parseInt(request.params("squadId"));
             Hero heroes = Hero.findById(squadId);
-            Squad squads = Squad.findById(squadId);
+            Squad squads = findById(instance, squadId);
             model.put("squad",squads);
             model.put("heroes", heroes);
-            return new ModelAndView(model,"squadList.hbs");
+            return new ModelAndView(model,"anything.hbs");
         },new HandlebarsTemplateEngine());
 
 
