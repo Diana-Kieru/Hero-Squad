@@ -12,10 +12,7 @@ public class Squad {
         this.name = name;
         this.cause = cause;
         this.id = id;
-//        instance.add(this);
-//        this.id = instance.size();
 
-//
 
     }
 

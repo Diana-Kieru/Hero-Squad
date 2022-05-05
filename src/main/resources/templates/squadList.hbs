@@ -1,10 +1,6 @@
-
 {{#partial "content"}}
-
-
     <h1 class="mt-5 text-center">The Squad List</h1>
 
-<!--    {#if squads}-->
         {{#each squads}}
             <div class="container mt-5 w-50 list">
                 <ul>
@@ -15,8 +11,6 @@
             </div>
         {{/each}}
         <p class="text-center mt-4"> <a href="/squads"><button type="button" class="btn">Add Squad </button></a></p>
-<!--    {else}-->
-<!--        <p class="mt-5 text-center">No Squads yet!</p>-->
-<!--    {/if}-->
+
 {{/partial}}
 {{>layout.hbs}}
