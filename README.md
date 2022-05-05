@@ -18,6 +18,9 @@ There are no known bugs. Incase you experience any errors using this website kin
 * Bootstrap
 ## Support and contact details
 email: dianakieru1@gmail.com
+
+## Live link
+[Live Link](https://deeherosquad.herokuapp.com/)
 ### License
 [MIT License](./LICENSE)
 
